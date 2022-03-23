@@ -1,13 +1,15 @@
+import useAuth from "../../data/hook/useAuth";
 import { IconHome, IconAdjustments, IconBell, IconLogout } from "../icons";
 import Logo from "./Logo";
 import MenuItem from "./ManuItemn";
 
 
-interface MenuLateralProps{
 
-}
 
-export default function MenuLateral(props:MenuLateralProps){
+export default function MenuLateral(){
+
+    const {logout} = useAuth()
+
     return(
         <aside className={`flex flex-col 
                             dark:bg-gray-900 dark:text-gray-200 
@@ -24,7 +26,7 @@ export default function MenuLateral(props:MenuLateralProps){
             </ul>
             <ul>
 
-                <MenuItem url='/' texto='Sair' icone={IconLogout} onClick={()=> confirm('Realmnete deseja deslogar?')}
+                <MenuItem url='/' texto='Sair' icone={IconLogout} onClick={logout}
             className={`rounded-full text-red-600 hover:bg-red-600 hover:text-white `}/>
         
             </ul>
